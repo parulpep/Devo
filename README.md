@@ -24,10 +24,10 @@ Screenshots of API demonstration and Output
 ![Alt text][id4]
 
 
-[id1]: instanceSnapshotAWS.png
-[id2]: output_snapshot.png
-[id3]: securityGroup.png
-[id4]: keypairs_snapshot.png
+[id1]: ./instanceSnapshotAWS.png "running instance used for API call"
+[id2]: ./output_snapshot.png "Output showing authentication and API call"
+[id3]: ./securityGroup.png "security group used in program"
+[id4]: ./keypairs_snapshot.png "key pairs used in program"
 
 Explanation
 -----------
