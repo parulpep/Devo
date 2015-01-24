@@ -6,10 +6,13 @@ A short paragraph
 > EC2 (Elastic computing class) is an Amazon web 
 service that provides computing resources. It 
 provides instances that allow easy scaling of 
-capacity according to requirements. It aids in
+capacity according to requirements. The instances 
+can be created and terminated as needed. It aids in
 load balancing. As per the incoming traffic, 
 the load is distributed number of EC2 instances. 
 It allows easy provisioning of cloud based desktops.
+It provides flexibility tot he users. They pay for 
+what they use.
 
 > Using AWS SDK of language of choice one can connect with the instance using AWS APIs
 and can gain full control of the services. Here Java has been used for binding.
@@ -38,7 +41,7 @@ Screenshots of API demonstration and Output
 Explanation
 -----------
 > I installed AWS SDK for Java and authenticated 
-to the amazon web services using secret_access_key 
+to the Amazon web services using secret_access_key 
 and access_key_Id. The simple API call made was getPasswordData
 that takes in the instance ID of the instance running and outputs 
 Instance ID, Timestamp and PasswordData.
