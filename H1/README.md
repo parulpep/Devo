@@ -32,11 +32,11 @@ Screenshots of API demonstration and Output
 
 [id1]: https://github.com/parulpep/Devo/blob/master/instanceSnapshotAWS.PNG "Running instance used for API call"
 
-[id2]: ./output_snapshot.PNG "Output showing authentication and API call"
+[id2]: https://github.com/parulpep/Devo/blob/master/output_snapshot.PNG "Output showing authentication and API call"
 
-[id3]: ./securityGroup.PNG "Security group used in program"
+[id3]: https://github.com/parulpep/Devo/blob/master/securityGroup.PNG "Security group used in program"
 
-[id4]: ./keypairs_snapshot.PNG "Key pairs used in program"
+[id4]: https://github.com/parulpep/Devo/blob/master/keypairs_snapshot.PNG "Key pairs used in program"
 
 Explanation
 -----------
