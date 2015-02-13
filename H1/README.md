@@ -30,7 +30,7 @@ Screenshots of API demonstration and Output
 ![Alt text][id4]
 
 
-[id1]: ./instanceSnapshotAWS.PNG "Running instance used for API call"
+[id1]: https://github.com/parulpep/Devo/blob/master/instanceSnapshotAWS.PNG "Running instance used for API call"
 
 [id2]: ./output_snapshot.PNG "Output showing authentication and API call"
 
