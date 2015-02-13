@@ -82,7 +82,6 @@ function generateTestCases()
 		var constraints = functionConstraints[funcName].constraints;
 		// Handle global constraints...
 		var fileWithContent = _.some(constraints, {mocking: 'fileWithContent' });
-		//var fileWithoutContent = _.some(constraints, {mocking: 'fileWithoutContent' });
 		var pathExists      = _.some(constraints, {mocking: 'fileExists' });
 		var pathNotExists   = _.some(constraints, {mocking: '' });
 		var inc_cons1       = _.some(constraints, {value: 'undefined'});
@@ -111,27 +110,28 @@ function generateTestCases()
 			content += generateMockFsTestCases(!pathExists,fileWithContent,funcName, args);
 		}
 		else if (inc_cons1 || inc_cons2){
-		content += "subject.{0}({1});\n".format(funcName, args );
-		content += "subject.{0}({1});\n".format(funcName, "'-2','undefined'");
-		content += "subject.{0}({1});\n".format(funcName, "'-1','3'");		
+			content += "subject.{0}({1});\n".format(funcName, args );
+			content += "subject.{0}({1});\n".format(funcName, "'-2','undefined'");
+			content += "subject.{0}({1});\n".format(funcName, "'-1','3'");		
 		}
 		else if(format_1 || format_2){
-		var phoneNumForm = faker.phone.phoneFormats();
-		var phoneNumF = faker.phone.phoneNumberFormat();
+			var phoneNumForm = faker.phone.phoneFormats();
+			var phoneNumF = faker.phone.phoneNumberFormat();
 		
-		content += "subject.{0}({1});\n".format(funcName, args );
-		var options = {toString: function(){return "{normalize:true}";},};
-		content += "subject.{0}({1});\n".format(funcName,"'"+phoneNumF+"','"+phoneNumForm+"',"+options);
-		options['toString'] = function(){return "{normalize:false}";};
-		content += "subject.{0}({1});\n".format(funcName,"'"+phoneNumF+"','"+phoneNumForm+"',"+options);
-		content += "subject.{0}({1});\n".format(funcName,"'"+phoneNumF+"','"+phoneNumForm+"',"+!options);
+			content += "subject.{0}({1});\n".format(funcName, args );
+			var options = {toString: function(){return "{normalize:true}";},};
+			content += "subject.{0}({1});\n".format(funcName,"'"+phoneNumF+"','"+phoneNumForm+"',"+options);
+		
+			options['toString'] = function(){return "{normalize:false}";};
+			content += "subject.{0}({1});\n".format(funcName,"'"+phoneNumF+"','"+phoneNumForm+"',"+options);
+			content += "subject.{0}({1});\n".format(funcName,"'"+phoneNumF+"','"+phoneNumForm+"',"+!options);
 		}
 		else if(!areaCode)
 		{
-		var phoneNum = faker.phone.phoneNumberFormat();
-		content += "subject.{0}({1});\n".format(funcName, args);
-		content += "subject.{0}({1});\n".format(funcName, "'(212) 234-5644'");
-		content += "subject.{0}({1});\n".format(funcName, "'"+phoneNum+"'" );
+			var phoneNum = faker.phone.phoneNumberFormat();
+			content += "subject.{0}({1});\n".format(funcName, args);
+			content += "subject.{0}({1});\n".format(funcName, "'(212) 234-5644'");
+			content += "subject.{0}({1});\n".format(funcName, "'"+phoneNum+"'" );
 		}
 		else{
 			// Emit simple test case.
@@ -227,9 +227,9 @@ function constraints(filePath)
 				}
 				
 				if( child.type == 'LogicalExpression' && 
-				    child.operator=="||")
+				    child.operator == "||")
                 {
-                    if(child.left.type=='UnaryExpression')
+                    if(child.left.type == 'UnaryExpression')
                     {
                         functionConstraints[funcName].constraints.push(
                         {
@@ -245,9 +245,9 @@ function constraints(filePath)
                         );
                     }
      
-                if(child.right.type=='UnaryExpression' &&
+                if(child.right.type == 'UnaryExpression' &&
 				    child.right.operator == "!"){
-                    if(child.right.argument.type=='MemberExpression'){
+                    if(child.right.argument.type == 'MemberExpression'){
 						functionConstraints[funcName].constraints.push(
                         {
 							ident: child.right.argument.object.name+'.'+child.right.argument.property.name,
@@ -266,9 +266,9 @@ function constraints(filePath)
 				
 				if( child.type == "CallExpression" && 
 					 child.callee.property &&
-					 child.callee.property.name =="readFileSync" )
+					 child.callee.property.name == "readFileSync" )
 				{
-					for( var p =0; p < params.length; p++ )
+					for( var p = 0; p < params.length; p++ )
 					{
 						if( child.arguments[0].name == params[p] )
 						{
@@ -286,10 +286,10 @@ function constraints(filePath)
 					
 				if( child.type == "CallExpression" &&
 					 child.callee.property &&
-					 child.callee.property.name =="existsSync")
+					 child.callee.property.name == "existsSync")
 				{
 					    console.log(params+"Hello parama");
-					for( var p =0; p < params.length; p++ )
+					for( var p = 0; p < params.length; p++ )
 					{
 					    	    console.log(params[p]+"Hello p");
 					    console.log(child.arguments[0].name+"Hello arg");
